@@ -3,15 +3,17 @@ def caesar_cipher (string, shift_num)
   @final = ""
   for pos in 0..string.length - 1
     @char = @c_string[pos].ord
-    @char += shift_num
-    if (@char - shift_num) >= 65 && (@char - shift_num) <= 90
+
+    if @char >= 65 && @char <= 90
+      @char += shift_num
       if @char > 90
         while @char > 90 do
           @char -= 26
         end
       end
     end
-    if (@char - shift_num) >= 97 && (@char - shift_num) <= 122
+    if @char >= 97 && @char <= 122
+      @char += shift_num
       if @char > 122
         while @char > 122 do
           @char -= 26
@@ -24,4 +26,4 @@ def caesar_cipher (string, shift_num)
   return @final
 end
 
-# puts caesar_cipher("HELLo", 27)
+puts caesar_cipher("Hello!5", 200)
